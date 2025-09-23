@@ -68,29 +68,77 @@
     }
 
     /* ===== Hero ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      flex-direction: column;
-      text-align: center;
-      background: radial-gradient(circle at top, #6366f1, #0f172a 70%);
-      position: relative;
-    
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      animation: slideDown 1s ease forwards;
-    }
-    .hero p.role {
-      font-size: 1.3rem;
-      margin-bottom: 25px;
-      min-height: 30px;
-      animation: slideUp 1.2s ease forwards;
-    }
-    .socials { margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+/* Hero split layout */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #6366f1, #0f172a 70%);
+  padding: 0 20px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+/* Left: Image */
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  animation: slideLeft 1s ease forwards;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* Right: Text */
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: slideDown 1s ease forwards;
+}
+
+.hero-text p.role {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  min-height: 30px;
+  animation: slideUp 1.2s ease forwards;
+}
+
+/* Animations */
+@keyframes slideLeft { from { opacity: 0; transform: translateX(-40px);} to { opacity: 1; transform: translateX(0);} }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text, .hero-image {
+    max-width: 90%;
+  }
+  .hero-text { text-align: center; }
+}
+
+    .socials { margin-top: 15px; display: flex; gap: 10px;  flex-wrap: wrap; }
     .socials a {
       display: inline-block;
       margin: 0 8px;
@@ -275,18 +323,29 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero" id="hero">
-    <h1>Manoj Panta</h1>
-    <p class="role" id="role"></p>
-    <div class="socials">
-      <a href="https://github.com/manojpanta1230" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/manoj-panta-3aa121224/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:pantamanoj08@gmail.com"><i class="fas fa-envelope"></i></a>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <!-- Left: Image -->
+    <div class="hero-image">
+      <img src="mandir.png" alt="Manoj Panta">
     </div>
-    <div class="download-btn">
-      <a href="Manoj_Panta_Resume.pdf" download><button>Download CV</button></a>
+
+    <!-- Right: Text -->
+    <div class="hero-text">
+      <h1>Manoj Panta</h1>
+      <p class="role" id="role"></p>
+      <div class="socials">
+        <a href="https://github.com/manojpanta1230" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/manoj-panta-3aa121224/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:pantamanoj08@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="download-btn">
+        <a href="Manoj_Panta_Resume.pdf" download><button>Download CV</button></a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <div class="container">
     <!-- About -->
