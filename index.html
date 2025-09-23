@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoj Panta Portfolio</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0f172a;
+      color: #f9fafb;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 80px 20px; }
+    .container { max-width: 1200px; margin: auto; }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .nav-container .logo a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+    #nav-links { display: flex; gap: 25px; list-style: none; }
+    #nav-links li a {
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+    #nav-links li a:hover { color: #6366f1; transform: translateY(-2px); }
+
+    .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: #f9fafb; }
+
+    @media (max-width: 768px) {
+      #nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(15,23,42,0.95);
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+        display: none;
+      }
+      #nav-links li { text-align: center; }
+      #nav-links.active { display: flex; }
+      .hamburger { display: block; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-direction: column;
+      text-align: center;
+      background: radial-gradient(circle at top, #6366f1, #0f172a 70%);
+      position: relative;
+    
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      animation: slideDown 1s ease forwards;
+    }
+    .hero p.role {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      min-height: 30px;
+      animation: slideUp 1.2s ease forwards;
+    }
+    .socials { margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .socials a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 10px 12px;
+      transition: transform 0.3s, background 0.3s;
+      font-size: 0.9rem;
+      color: #f9fafb;
+    }
+    .socials a:hover { transform: scale(1.2) rotate(8deg); }
+
+    .download-btn {
+      margin-top: 20px;
+    }
+    .download-btn button {
+      padding: 12px 20px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .download-btn button:hover { background: #4f46e5; transform: translateY(-2px); }
+
+    /* ===== Section Titles ===== */
+    h2.section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    h2.section-title::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 4px;
+      background: #6366f1;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* ===== About ===== */
+    .about { text-align: center; }
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      padding: 0 10px;
+    }
+
+    /* ===== Skills ===== */
+    .skills { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 40px; }
+    .skill-card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    .skill-card.active { opacity: 1; transform: translateY(0); }
+    .skill-card h3 { margin-bottom: 8px; color: #6366f1; font-size: 1.2rem; }
+    .skill-card p { color: #94a3b8; font-size: 0.9rem; }
+
+    /* ===== Education & Work ===== */
+    .education { display: grid; gap: 20px; max-width: 700px; margin: auto; }
+    .edu-card {
+      background: #1e293b;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transform: translateX(-40px);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    .edu-card.active { opacity: 1; transform: translateX(0); }
+    .edu-card h3 { color: #6366f1; margin-bottom: 5px; font-size: 1.2rem; }
+    .edu-card span { font-size: 0.85rem; color: #94a3b8; }
+
+    /* ===== Projects ===== */
+    .projects .cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .card.active { opacity: 1; transform: translateY(0); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { color: #94a3b8; margin-bottom: 15px; font-size: 0.9rem; }
+    .card a {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #6366f1;
+      color: white;
+      border-radius: 8px;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+    }
+    .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 10px 22px rgba(0,0,0,0.3); }
+    .card a:hover { background: #4f46e5; }
+
+    /* ===== Contact ===== */
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 10px;
+    }
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: #1e293b;
+      color: white;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus, textarea:focus { background: #334155; }
+    button { padding: 12px; background: #6366f1; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background 0.3s, transform 0.3s; }
+    button:hover { background: #4f46e5; transform: translateY(-2px); }
+
+    /* ===== Footer ===== */
+    footer { text-align: center; padding: 20px; background: #111827; color: #9ca3af; font-size: 0.85rem; }
+
+    /* ===== Animations ===== */
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-40px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0);} }
+
+    /* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #nav-links {
+    position: absolute;
+    top: 60px; /* slightly reduce top space */
+    left: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.95);
+    flex-direction: column;
+    gap: 0; /* remove extra gap between links */
+    padding: 10px 0; /* reduce padding */
+    display: none;
+  }
+  #nav-links li { text-align: center; padding: 12px 0; } /* uniform padding for links */
+  #nav-links.active { display: flex; }
+}
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p.role { font-size: 1rem; }
+      .socials a { margin: 0 6px; padding: 8px 10px; font-size: 0.8rem; }
+      .card h3, .skill-card h3, .edu-card h3 { font-size: 1rem; }
+      .card p, .skill-card p, .edu-card span { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo"><a href="#hero">Manoj Panta</a></div>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+      <ul id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>Manoj Panta</h1>
+    <p class="role" id="role"></p>
+    <div class="socials">
+      <a href="https://github.com/manojpanta1230" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/manoj-panta-3aa121224/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:pantamanoj08@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="download-btn">
+      <a href="Manoj_Panta_Resume.pdf" download><button>Download CV</button></a>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- About -->
+    <section class="about" id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>Frontend Web Developer with a Bachelor’s in Computing from The British College, Kathmandu. I build dynamic, responsive, and visually appealing web applications with React and modern frontend technologies. Passionate about clean code, intuitive user experiences, and continuous learning.</p>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-section" id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills">
+        <div class="skill-card"><h3>HTML</h3><p>Expert in semantic & accessible markup.</p></div>
+        <div class="skill-card"><h3>CSS</h3><p>Animations, layouts, and responsive design.</p></div>
+        <div class="skill-card"><h3>JavaScript</h3><p>Dynamic and interactive web experiences.</p></div>
+        <div class="skill-card"><h3>Canva UI</h3><p>Creative designs and mockups.</p></div>
+        <div class="skill-card"><h3>Figma</h3><p>Creative designs and mockups.</p></div>
+        <div class="skill-card"><h3>React</h3><p>Building dynamic frontends with React.</p></div>
+        <div class="skill-card"><h3>Node.js</h3><p>Backend logic and APIs.</p></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education-section" id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="education">
+        <div class="edu-card"><h3>Bachelor of Computer Science</h3><span>2021 - 2025 | The British College</span></div>
+        <div class="edu-card"><h3>+2 Education</h3><span>2019 - 2021 | Kathmandu Model College</span></div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section class="education-section">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="education">
+        <div class="edu-card"><h3>Head Management | Vitallic Sports Wears Pvt Ltd</h3><span>Apr 2024 - Aug 2024</span></div>
+        <div class="edu-card"><h3>Intern | Blue Print Technologies</h3><span>Sep 2024 - Apr 2025</span></div>
+        <div class="edu-card"><h3>Intern | E-Works</h3><span>Aug 2025 - Present</span></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+        <div class="card"><h3>Skilled Nepal</h3><p>A modern web app built with HTML, CSS, JS using Bootstrap.</p><a href="https://www.skillednepali.com" target="_blank">View Project</a></div>
+        <div class="card"><h3>Jewellery Dashboard</h3><p>A web dashboard built with React and Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Jewellery" target="_blank">View Project</a></div>
+        <div class="card"><h3>Full Stack Parking Management</h3><p>UI with responsive design and animations using React, Node.js, MongoDB, Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Parking-Managment-Platform" target="_blank">View Project</a></div>
+        <div class="card"><h3>Fair Craft Jewellery</h3><p>A modern web app built with HTML, CSS, and JS.</p><a href="https://github.com/manojpanta1230/Jewellery_Shop" target="_blank">View Project</a></div>
+        <div class="card"><h3>Magnificent Tours & Travels</h3><p>Full web application made using MERN Stack.</p><a href="https://www.magnificenttravels.com/" target="_blank">View Project</a></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+
+  </div>
+
+  <!-- Footer -->
+  <footer>© <span id="year"></span> Manoj Panta. All rights reserved.</footer>
+
+  <!-- Scripts -->
+ <script>
+  // Auto year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Hero role auto-change
+  const roles = ["Web Developer", "Creative Coder", "Frontend Enthusiast", "Self-Learner", "Freelancer"];
+  let roleIndex = 0;
+  const roleElement = document.getElementById("role");
+  function changeRole() {
+    roleElement.textContent = roles[roleIndex];
+    roleIndex = (roleIndex + 1) % roles.length;
+  }
+  changeRole();
+  setInterval(changeRole, 2500);
+
+  // Scroll reveal function (works on all screen sizes)
+  const revealElements = document.querySelectorAll(".skill-card, .edu-card, .card");
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < windowHeight - 50) { // smaller threshold for small devices
+        el.classList.add("active");
+      }
+    });
+  }
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll); // trigger on page load too
+
+  // Hamburger toggle
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Close menu when clicking a link
+  const navItems = navLinks.querySelectorAll("a");
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+</script>
+
+</body>
+</html>
