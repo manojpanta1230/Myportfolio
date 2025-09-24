@@ -10,9 +10,14 @@
     <link rel="canonical" href="https://mpanta.com.np/" />
     <meta name="description" content>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   </head>
   <body>
@@ -178,10 +183,10 @@
             required />
           <input type="email" name="user_email" placeholder="Your Email"
             required />
-              <input type="text" name="user_phone" placeholder="Your Phone Number"
+          <input type="text" name="user_phone" placeholder="Your Phone Number"
             required />
           <textarea name="message" rows="5"
-            placeholder="Your Message" required ></textarea>
+            placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
       </section>
@@ -222,10 +227,11 @@
     <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <script>
   (function(){
     emailjs.init("zvPPtFTgAXPHvXWzW"); // Replace with your EmailJS user ID
-  })();
+  }());
 
    const form = document.getElementById('contact-form');
 form.addEventListener('submit', function(e) {
@@ -240,12 +246,7 @@ form.addEventListener('submit', function(e) {
       console.error(error);
     });
 });
-
-
-</script>
-    <script>
-  // Auto year
-  document.getElementById("year").textContent = new Date().getFullYear();
+ document.getElementById("year").textContent = new Date().getFullYear();
 
   // Hero role auto-change
   const roles = ["Web Developer", "Creative Coder", "Frontend Enthusiast", "Self-Learner", "Freelancer"];
