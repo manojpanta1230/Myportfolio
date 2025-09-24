@@ -302,3 +302,65 @@
       .card p, .skill-card p, .edu-card span { font-size: 0.8rem; }
       .socials{ justify-content: center;}
     }
+      @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-750px); /* Width of 3 slides */
+            }
+        }
+
+        .slider {
+            background: rgb(255, 255, 255);
+            height: 120px;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 960px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-track {
+            animation: scroll 8s linear infinite;
+            display: flex;
+            align-items: center;
+            width: calc(250px * 3); /* Double the slides for seamless loop */
+        }
+
+        .slide {
+            height: 120px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            max-height: 100px;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        /* Fade effect on edges */
+        .slider::before, 
+        .slider::after {
+            content: "";
+            height: 120px;
+            position: absolute;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .slider::before {
+            left: 0;
+        }
+
+        .slider::after {
+            right: 0;
+        }
