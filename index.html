@@ -1,151 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="icon" type="image/x-icon" href="Images/image.png">
-  <title>Manoj Panta - Web Developer In Nepal  </title>
-   <link rel="canonical" href="https://mpanta.com.np/" />
-  <meta name="description" content="">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo"><a href="#hero">Manoj Panta</a></div>
-      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
-      <ul id="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="Images/image.png">
+    <title>Manoj Panta - Web Developer In Nepal </title>
+    <link rel="canonical" href="https://mpanta.com.np/" />
+    <meta name="description" content>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-  <!-- Hero -->
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-container">
-    <!-- Left: Image -->
-    <div class="hero-image">
-      <img src="Images/gemini.png" alt="Manoj Panta">
-    </div>
-
-    <!-- Right: Text -->
-    <div class="hero-text">
-      <h1>Manoj Panta</h1>
-      <p class="role" id="role"></p>
-      <div class="socials">
-        <a href="https://github.com/manojpanta1230" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/manoj-panta-3aa121224/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:pantamanoj08@gmail.com"><i class="fas fa-envelope"></i></a>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo"><a href="#hero">Manoj Panta</a></div>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        <ul id="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#clients ">Our Clients</a></li>
+          <li><a href="#contact ">Contact</a></li>
+        </ul>
       </div>
-      <div class="download-btn">
-        <a href="Manoj_Panta_Resume.pdf" download><button>Download CV</button></a>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-  <div class="container">
-    <!-- About -->
-    <section class="about" id="about">
-      <h2 class="section-title">About Me</h2>
-      <p>I am Manoj Panta <a href="#projects" style="color: brown; font-size: 24px"> Web Developer</a> with experience in React and modern web technologies.Frontend Web Developer with a Bachelor’s in Computing from The British College, Kathmandu. I build dynamic, responsive, and visually appealing web applications with React and modern frontend technologies. Passionate about clean code, intuitive user experiences, and continuous learning.</p>
-    </section>
-
-    <!-- Skills -->
-    <section class="skills-section" id="skills">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills">
-        <div class="skill-card"><h3>HTML</h3><p>Expert in semantic & accessible markup.</p></div>
-        <div class="skill-card"><h3>CSS</h3><p>Animations, layouts, and responsive design.</p></div>
-        <div class="skill-card"><h3>JavaScript</h3><p>Dynamic and interactive web experiences.</p></div>
-        <div class="skill-card"><h3>Canva UI</h3><p>Creative designs and mockups.</p></div>
-        <div class="skill-card"><h3>Figma</h3><p>Creative designs and mockups.</p></div>
-        <div class="skill-card"><h3>React</h3><p>Building dynamic frontends with React.</p></div>
-        <div class="skill-card"><h3>Node.js</h3><p>Backend logic and APIs.</p></div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section class="education-section" id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="education">
-        <div class="edu-card"><h3>Bachelor of Computer Science</h3><span>2021 - 2025 | The British College</span></div>
-        <div class="edu-card"><h3>+2 Education</h3><span>2019 - 2021 | Kathmandu Model College</span></div>
-      </div>
-    </section>
-
-    <!-- Work Experience -->
-    <section class="education-section">
-      <h2 class="section-title">Work Experience</h2>
-      <div class="education">
-        <div class="edu-card"><h3>Head Management | Vitallic Sports Wears Pvt Ltd</h3><span>Apr 2024 - Aug 2024</span></div>
-        <div class="edu-card"><h3>Intern | Blue Print Technologies</h3><span>Sep 2024 - Apr 2025</span></div>
-        <div class="edu-card"><h3>Intern | E-Works</h3><span>Aug 2025 - Present</span></div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section class="projects" id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="cards">
-        <div class="card"><h3>Skilled Nepal</h3><p>A modern web app built with HTML, CSS, JS using Bootstrap.</p><a href="https://www.skillednepali.com" target="_blank">View Project</a></div>
-        <div class="card"><h3>Jewellery Dashboard</h3><p>A web dashboard built with React and Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Jewellery" target="_blank">View Project</a></div>
-        <div class="card"><h3>Full Stack Parking Management</h3><p>UI with responsive design and animations using React, Node.js, MongoDB, Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Parking-Managment-Platform" target="_blank">View Project</a></div>
-        <div class="card"><h3>Fair Craft Jewellery</h3><p>A modern web app built with HTML, CSS, and JS.</p><a href="https://jewelleryshops.netlify.app/" target="_blank">View Project</a></div>
-        <div class="card"><h3>Magnificent Tours & Travels</h3><p>Full web application made using MERN Stack.</p><a href="https://www.magnificenttravels.com/" target="_blank">View Project</a></div>
-      </div>
-    </section>
-        <section class="projects" id="projects">
-      <h2 class="section-title">My Services</h2>
-      <div class="cards">
-        <div class="card"><h3>Web Development</h3></div>
-        <div class="card"><h3>Designing</h3><p>A web dashboard built with React and Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Jewellery" target="_blank">View Project</a></div>
-        <div class="card"><h3>WordPress</h3><p>UI with responsive design and animations using React, Node.js, MongoDB, Tailwind CSS.</p><a href="https://github.com/manojpanta1230/Parking-Managment-Platform" target="_blank">View Project</a></div>
-        <div class="card"><h3>Fair Craft Jewellery</h3><p>A modern web app built with HTML, CSS, and JS.</p><a href="https://jewelleryshops.netlify.app/" target="_blank">View Project</a></div>
-        <div class="card"><h3>Magnificent Tours & Travels</h3><p>Full web application made using MERN Stack.</p><a href="https://www.magnificenttravels.com/" target="_blank">View Project</a></div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-       <h2 class="section-title">Our Clients</h2>
- <div class="slider">
-        <div class="slide-track">
-            <!-- First set of logos -->
-            <div class="slide">
-                <img src="Images/logo-1.png" alt="Site Logo" />
-            </div>
-            <div class="slide">
-                <img src="Images/Version 2 Fairy Craft Jewellery.png" alt="Logo 1" />
-            </div>
-            <div class="slide">
-                <img src="Images/Skillednepali.png" alt="Fairy Craft Jewellery" />
-            </div>
-            <!-- Duplicate set for seamless loop -->
-            <div class="slide">
-                <img src="Images/logo-1.png" alt="Site Logo" />
-            </div>
-            <div class="slide">
-                <img src="Images/Version 2 Fairy Craft Jewellery.png" alt="Logo 1" />
-            </div>
-            <div class="slide">
-                <img src="Images/Skillednepali.png" alt="Fairy Craft Jewellery" />
-            </div>
+    <!-- Hero -->
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-container">
+        <!-- Left: Image -->
+        <div class="hero-image">
+          <img src="Images/gemini.png" alt="Manoj Panta">
         </div>
+
+        <!-- Right: Text -->
+        <div class="hero-text">
+          <h1>Manoj Panta</h1>
+          <p class="role" id="role"></p>
+          <div class="socials">
+            <a href="https://github.com/manojpanta1230" target="_blank"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/manoj-panta-3aa121224/"
+              target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pantamanoj08@gmail.com"><i
+                class="fas fa-envelope"></i></a>
+          </div>
+          <div class="download-btn">
+            <a href="Manoj_Panta_Resume.pdf" download><button>Download
+                CV</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- About -->
+      <section class="about" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>I am Manoj Panta <a href="#projects"
+            style="color: brown; font-size: 24px"> Web Developer</a> with
+          experience in React and modern web technologies.Frontend Web Developer
+          with a Bachelor’s in Computing from The British College, Kathmandu. I
+          build dynamic, responsive, and visually appealing web applications
+          with React and modern frontend technologies. Passionate about clean
+          code, intuitive user experiences, and continuous learning.</p>
+      </section>
+
+      <!-- Skills -->
+      <section class="skills-section" id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills">
+          <div class="skill-card"><h3>HTML</h3><p>Expert in semantic &
+              accessible markup.</p></div>
+          <div class="skill-card"><h3>CSS</h3><p>Animations, layouts, and
+              responsive design.</p></div>
+          <div class="skill-card"><h3>JavaScript</h3><p>Dynamic and interactive
+              web experiences.</p></div>
+          <div class="skill-card"><h3>Canva UI</h3><p>Creative designs and
+              mockups.</p></div>
+          <div class="skill-card"><h3>Figma</h3><p>Creative designs and
+              mockups.</p></div>
+          <div class="skill-card"><h3>React</h3><p>Building dynamic frontends
+              with React.</p></div>
+          <div class="skill-card"><h3>Node.js</h3><p>Backend logic and
+              APIs.</p></div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="education-section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education">
+          <div class="edu-card"><h3>Bachelor of Computer Science</h3><span>2021
+              - 2025 | The British College</span></div>
+          <div class="edu-card"><h3>+2 Education</h3><span>2019 - 2021 |
+              Kathmandu Model College</span></div>
+        </div>
+      </section>
+
+      <!-- Work Experience -->
+      <section class="education-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="education">
+          <div class="edu-card"><h3>Head Management | Vitallic Sports Wears Pvt
+              Ltd</h3><span>Apr 2024 - Aug 2024</span></div>
+          <div class="edu-card"><h3>Intern | Blue Print
+              Technologies</h3><span>Sep 2024 - Apr 2025</span></div>
+          <div class="edu-card"><h3>Intern | E-Works</h3><span>Aug 2025 -
+              Present</span></div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="projects" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="cards">
+          <div class="card"><h3>Skilled Nepal</h3><p>A modern web app built with
+              HTML, CSS, JS using Bootstrap.</p><a
+              href="https://www.skillednepali.com" target="_blank">View
+              Project</a></div>
+          <div class="card"><h3>Jewellery Dashboard</h3><p>A web dashboard built
+              with React and Tailwind CSS.</p><a
+              href="https://github.com/manojpanta1230/Jewellery"
+              target="_blank">View Project</a></div>
+          <div class="card"><h3>Full Stack Parking Management</h3><p>UI with
+              responsive design and animations using React, Node.js, MongoDB,
+              Tailwind CSS.</p><a
+              href="https://github.com/manojpanta1230/Parking-Managment-Platform"
+              target="_blank">View Project</a></div>
+          <div class="card"><h3>Fair Craft Jewellery</h3><p>A modern web app
+              built with HTML, CSS, and JS.</p><a
+              href="https://jewelleryshops.netlify.app/" target="_blank">View
+              Project</a></div>
+          <div class="card"><h3>Magnificent Tours & Travels</h3><p>Full web
+              application made using MERN Stack.</p><a
+              href="https://www.magnificenttravels.com/" target="_blank">View
+              Project</a></div>
+        </div>
+      </section>
+      <section class="projects" id="projects">
+        <h2 class="section-title">My Services</h2>
+        <div class="cards">
+          <div class="card"><h3> Web Development</h3><p>UI with responsive
+              design and
+              animations using React, Node.js, MongoDB, Tailwind CSS.</p><a
+              href="#contact">Hire Me</a></div>
+
+          <div class="card"><h3>Designing Figma & Canva</h3><p>A web dashboard
+              built with
+              React and Tailwind CSS.</p><a
+              href="#contact">Hire Me</a></div>
+          <div class="card"><h3>WordPress</h3><p>WordPress Developer with in
+              custom theme and plugin development, site optimization.</p><a
+              href="#contact">Hire Me</a></div>
+
+          <div class="card"><h3>Domain Registration and Hosting</h3><p>Your
+              website's digital address. Your brand's online home. We handle the
+              technical side so you can focus on building your dream.</p><a
+              href="#contact">Hire Me</a></div>
+
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <form id="contact-form">
+          <input type="text" name="user_name" placeholder="Your Name"
+            required />
+          <input type="email" name="user_email" placeholder="Your Email"
+            required />
+              <input type="text" name="user_phone" placeholder="Your Phone Number"
+            required />
+          <textarea name="message" rows="5"
+            placeholder="Your Message" required ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+      <!-- Contact -->
+      <h2 class="section-title" id="clients">Our Clients</h2>
+      <div class="slider">
+        <div class="slide-track">
+          <!-- First set of logos -->
+          <div class="slide">
+            <img src="Images/logo-1.png" alt="Site Logo" />
+          </div>
+          <div class="slide">
+            <img src="Images/Version 2 Fairy Craft Jewellery.png"
+              alt="Logo 1" />
+          </div>
+          <div class="slide">
+            <img src="Images/Skillednepali.png" alt="Fairy Craft Jewellery" />
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="slide">
+            <img src="Images/logo-1.png" alt="Site Logo" />
+          </div>
+          <div class="slide">
+            <img src="Images/Version 2 Fairy Craft Jewellery.png"
+              alt="Logo 1" />
+          </div>
+          <div class="slide">
+            <img src="Images/Skillednepali.png" alt="Fairy Craft Jewellery" />
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer>© <span id="year"></span> Manoj Panta. All rights reserved.</footer>
+    <!-- Footer -->
+    <footer>© <span id="year"></span> Manoj Panta. All rights reserved.</footer>
 
-  <!-- Scripts -->
- <script>
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+  (function(){
+    emailjs.init("zvPPtFTgAXPHvXWzW"); // Replace with your EmailJS user ID
+  })();
+
+   const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm('service_leundna', 'template_fy2io7d', this)
+    .then(() => {
+      toastr.success("Message sent successfully! We will be in touch Soon."); 
+      form.reset();
+    }, (error) => {
+      toastr.error("Failed to send message. Try again!"); 
+      console.error(error);
+    });
+});
+
+
+</script>
+    <script>
   // Auto year
   document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -190,5 +288,5 @@
   });
 </script>
 
-</body>
+  </body>
 </html>
