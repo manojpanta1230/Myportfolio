@@ -228,82 +228,91 @@
     <script
       src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-    <script>
-  (function(){
-    emailjs.init("zvPPtFTgAXPHvXWzW"); // Replace with your EmailJS user ID
-  }());
+<script>
+  (function () {
+    emailjs.init("zvPPtFTgAXPHvXWzW");
+  })();
 
-   const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  emailjs.sendForm('service_leundna', 'template_fy2io7d', this)
-    .then(() => {
-      toastr.success("Message sent successfully! We will be in touch Soon."); 
-      form.reset();
-    }, (error) => {
-      toastr.error("Failed to send message. Try again!"); 
-      console.error(error);
-    });
-});
- document.getElementById("year").textContent = new Date().getFullYear();
+    emailjs.sendForm('service_leundna', 'template_fy2io7d', this)
+      .then(() => {
+        toastr.success("Message sent successfully! We will be in touch Soon.");
+        form.reset();
+      }, (error) => {
+        toastr.error("Failed to send message. Try again!");
+        console.error(error);
+      });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
 
   // Hero role auto-change
   const roles = ["Web Developer", "Creative Coder", "Frontend Enthusiast", "Self-Learner", "Freelancer"];
   let roleIndex = 0;
   const roleElement = document.getElementById("role");
+
   function changeRole() {
     roleElement.textContent = roles[roleIndex];
     roleIndex = (roleIndex + 1) % roles.length;
   }
+
   changeRole();
   setInterval(changeRole, 2500);
 
-  // Scroll reveal function (works on all screen sizes)
+  // Scroll reveal function
   const revealElements = document.querySelectorAll(".skill-card, .edu-card, .card");
+
   function revealOnScroll() {
     const windowHeight = window.innerHeight;
     revealElements.forEach(el => {
       const top = el.getBoundingClientRect().top;
-      if (top < windowHeight - 50) { // smaller threshold for small devices
+      if (top < windowHeight - 50) {
         el.classList.add("active");
       }
     });
   }
+
   window.addEventListener("scroll", revealOnScroll);
-  window.addEventListener("load", revealOnScroll); // trigger on page load too
   window.addEventListener("load", () => {
-    // Remove #id from the URL without reloading
+    revealOnScroll();
+
+    // Remove hash from URL
     if (window.location.hash) {
       history.replaceState(null, null, window.location.pathname + window.location.search);
     }
 
-    // Force scroll to top with animation
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     // Add fade-in animation
     document.body.classList.add("loaded");
   });
 
-  // Ensure scroll resets when leaving/reloading page
+  // Reset scroll on reload
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  // Hamburger toggle
+  };
+
+  // ✅ Hamburger toggle fix
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
+
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
   });
 
-  // Close menu when clicking a link
+  // Close menu on nav link click
   const navItems = navLinks.querySelectorAll("a");
   navItems.forEach(item => {
     item.addEventListener("click", () => {
       navLinks.classList.remove("active");
     });
   });
-}
 </script>
+
 
   </body>
 </html>
