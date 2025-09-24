@@ -271,7 +271,22 @@ form.addEventListener('submit', function(e) {
   }
   window.addEventListener("scroll", revealOnScroll);
   window.addEventListener("load", revealOnScroll); // trigger on page load too
+  window.addEventListener("load", () => {
+    // Remove #id from the URL without reloading
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
 
+    // Force scroll to top with animation
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Add fade-in animation
+    document.body.classList.add("loaded");
+  });
+
+  // Ensure scroll resets when leaving/reloading page
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
   // Hamburger toggle
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
@@ -286,6 +301,7 @@ form.addEventListener('submit', function(e) {
       navLinks.classList.remove("active");
     });
   });
+}
 </script>
 
   </body>
