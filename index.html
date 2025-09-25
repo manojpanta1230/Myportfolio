@@ -242,18 +242,50 @@
   })();
 
   const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    emailjs.sendForm('service_leundna', 'template_fy2io7d', this)
-      .then(() => {
-        toastr.success("Message sent successfully! We will be in touch Soon.");
-        form.reset();
-      }, (error) => {
-        toastr.error("Failed to send message. Try again!");
-        console.error(error);
-      });
-  });
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  let name = form.user_name.value.trim();
+  let email = form.user_email.value.trim();
+  let phone = form.user_phone.value.trim();
+  let message = form.message.value.trim();
+
+  let nameRegex = /^[a-zA-Z\s]{5,}$/; // at least 5 letters
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let phoneRegex = /^[0-9]{10}$/; // 10 digits only
+
+  if (!nameRegex.test(name)) {
+    toastr.error("Please enter a valid name (letters only, at least 5 characters).");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    toastr.error("Please enter a valid email address.");
+    return;
+  }
+
+  if (!phoneRegex.test(phone)) {
+    toastr.error("Please enter a valid 10-digit phone number.");
+    return;
+  }
+
+  if (message.length < 10) {
+    toastr.error("Message must be at least 10 characters long.");
+    return;
+  }
+
+  // ✅ If validation passes, send email
+  emailjs.sendForm('service_leundna', 'template_fy2io7d', this)
+    .then(() => {
+      toastr.success("Message sent successfully! We will be in touch soon.");
+      form.reset();
+    }, (error) => {
+      toastr.error("Failed to send message. Try again!");
+      console.error(error);
+    });
+});
+
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
