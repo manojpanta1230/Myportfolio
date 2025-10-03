@@ -364,10 +364,3 @@
         .slider::after {
             right: 0;
         }
-        .project-img {
-  width: 100%;
-   /* fixed height for consistency */
-  object-fit: contain; /* crop & maintain aspect ratio */
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
