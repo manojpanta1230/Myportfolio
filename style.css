@@ -370,7 +370,7 @@
   border-radius: 10px;
   margin-bottom: 12px;
 }
-/* .blogs {
+.blogs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
@@ -429,4 +429,4 @@
 
 .blog-card .btn:hover {
   background: #0056b3;
-} */
+}
