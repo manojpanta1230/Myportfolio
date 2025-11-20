@@ -366,8 +366,67 @@
         }
 .project-img {
   width: 100%;
-  height: 180px; /* fixed height for consistency */
-  object-fit: contain; /* crop & maintain aspect ratio */
+  object-fit: cover; /* crop & maintain aspect ratio */
   border-radius: 10px;
   margin-bottom: 12px;
+}
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+
+  /* Center the single card and prevent extreme stretching */
+  justify-content: center;
+}
+
+.blog-card {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+
+  /* Make sure single card doesn’t get too wide */
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.blog-card h3 {
+  margin: 15px 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fbfbfb;
+}
+
+.blog-card p {
+  font-size: 15px;
+
+}
+
+.blog-card .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.blog-card .btn:hover {
+  background: #0056b3;
 }
