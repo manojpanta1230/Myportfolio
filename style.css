@@ -201,19 +201,57 @@
     .skill-card p { color: #94a3b8; font-size: 0.9rem; }
 
     /* ===== Education & Work ===== */
-    .education { display: grid; gap: 20px; max-width: 700px; margin: auto; }
-    .edu-card {
-      background: #1e293b;
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-      transform: translateX(-40px);
-      opacity: 0;
-      transition: all 0.6s ease;
-    }
-    .edu-card.active { display: flex; gap: 10px; opacity: 1; transform: translateX(0); }
-    .edu-card h3 { color: #6366f1; margin-bottom: 5px; font-size: 1.2rem; }
-    .edu-card span { font-size: 0.85rem; color: #94a3b8; }
+  /* ===== Education & Work ===== */
+.education { 
+  display: grid; 
+  gap: 20px; 
+  max-width: 700px; 
+  margin: auto; 
+}
+
+.edu-card {
+  display: flex;                   /* ensure logo + text appear side by side */
+  align-items: center;             /* vertically align logo + text */
+  gap: 15px;                       /* spacing between logo & info */
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  transform: translateX(-40px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.edu-card.active { 
+  opacity: 1; 
+  transform: translateX(0); 
+}
+
+.edu-logo {
+  width: 45px; 
+  height: 45px;
+  border-radius: 8px;              /* makes logos slightly rounded */
+  object-fit: contain;
+  background: #ffffff10;           /* subtle logo background */
+  padding: 5px;
+}
+
+.edu-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-card h3 { 
+  color: #6366f1; 
+  margin-bottom: 5px; 
+  font-size: 1.2rem; 
+}
+
+.edu-card span { 
+  font-size: 0.85rem; 
+  color: #94a3b8; 
+}
+
 
     /* ===== Projects ===== */
     .projects .cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
