@@ -1,0 +1,166 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
+import * as random from "maath/random/dist/maath-random.esm";
+import { motion, Variants } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function ParticleSystem(props: any) {
+  const ref = useRef<any>(null);
+  // Generate random points in a sphere
+  const sphere = random.inSphere(new Float32Array(3000), { radius: 1.5 });
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
+  });
+
+  return (
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+        <PointMaterial
+          transparent
+          color="#ccff00"
+          size={0.005}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
+  );
+}
+
+export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem("preloader_shown");
+    if (hasVisited) {
+      setIsReady(true);
+    } else {
+      const handleReady = () => setIsReady(true);
+      window.addEventListener("preloaderComplete", handleReady);
+      return () => window.removeEventListener("preloaderComplete", handleReady);
+    }
+  }, []);
+
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+  };
+
+  const scrollItem: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  useEffect(() => {
+    // Parallax effect on scroll (removed opacity fade out)
+    if (textRef.current && containerRef.current) {
+      gsap.to(textRef.current, {
+        yPercent: -30,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <section ref={containerRef} className="relative h-screen w-full flex flex-col justify-center overflow-hidden bg-background text-foreground" id="hero">
+      {/* 3D Background */}
+      <div className="absolute inset-0 z-0">
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <ParticleSystem />
+        </Canvas>
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col md:flex-row items-center justify-between h-full pt-32 md:pt-0">
+        
+        {/* Left Side: Text */}
+        <motion.div 
+          ref={textRef} 
+          variants={container}
+          initial="hidden"
+          animate={isReady ? "show" : "hidden"}
+          className="flex flex-col items-start gap-4 w-full lg:w-[55%] relative pointer-events-auto"
+        >
+          
+          <motion.h1
+            variants={item}
+            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.9] tracking-tighter relative"
+          >
+            <span className="absolute -left-6 md:-left-12 top-6 w-3 h-3 rounded-full bg-accent hidden md:block" />
+            I'm a developer <br />
+            who loves turning <br />
+            <span className="text-accent">ideas into<br />products.</span>
+          </motion.h1>
+          
+          <motion.div
+            variants={item}
+            className="mt-8 pointer-events-auto max-w-lg"
+          >
+            <motion.p 
+              variants={item}
+              className="text-foreground/70 text-sm md:text-base leading-relaxed mb-8"
+            >
+              I am Manoj Panta, a Full Stack Developer, Managing Director & Founder at Birvex Tech Pvt Ltd based in Kathmandu, Nepal. I specialize in frontend and full stack web development using modern technologies to build fast, responsive, and SEO-friendly digital solutions worldwide.
+            </motion.p>
+            
+            <button className="bg-accent text-black hover:bg-white transition-colors px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 group w-max">
+              Explore Work 
+              <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+            </button>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Side: Photo */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ delay: 0.4, duration: 1, ease: [0.76, 0, 0.24, 1] }}
+          className="w-full lg:w-[45%] flex justify-center lg:justify-end mt-24 lg:mt-40 pointer-events-auto relative z-10"
+        >
+          <motion.div 
+            animate={{ y: [-15, 15, -15] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="relative w-[280px] md:w-[500px] lg:w-[700px] xl:w-[800px] flex justify-center items-center" 
+            data-cursor="EXPLORE"
+          >
+            <img 
+              src="/gemini.png" 
+              alt="Manoj Panta" 
+              className="object-contain w-full h-auto drop-shadow-2xl" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/my.jpg';
+              }}
+            />
+          </motion.div>
+        </motion.div>
+        
+      </div>
+
+    </section>
+  );
+}
