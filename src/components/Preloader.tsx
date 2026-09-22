@@ -11,10 +11,7 @@ export default function Preloader() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (sessionStorage.getItem("preloader_shown")) {
-      setIsLoading(false);
-      return;
-    }
+    // The preloader will now show on every page load
 
     let currentIndex = 0;
     
@@ -25,17 +22,20 @@ export default function Preloader() {
         currentIndex++;
       } else {
         clearInterval(typingInterval);
-        
-        // Wait a moment after typing finishes before hiding preloader
-        setTimeout(() => {
-          setIsLoading(false);
-          sessionStorage.setItem("preloader_shown", "true");
-          window.dispatchEvent(new Event("preloaderComplete"));
-        }, 1500);
       }
     }, 80); // Typing speed
 
-    return () => clearInterval(typingInterval);
+    // Hide preloader after exactly 5 seconds
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+      sessionStorage.setItem("preloader_shown", "true");
+      window.dispatchEvent(new Event("preloaderComplete"));
+    }, 5000);
+
+    return () => {
+      clearInterval(typingInterval);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   if (pathname !== "/") return null;
