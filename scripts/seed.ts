@@ -43,7 +43,7 @@ async function main() {
       role: e.role,
       company: e.company,
       period: e.period,
-      logo: e.logo || null,
+      logo: e.logo || undefined,
       order: i,
     });
   }
