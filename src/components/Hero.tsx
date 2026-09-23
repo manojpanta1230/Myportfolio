@@ -168,7 +168,7 @@ export default function Hero({ settings }: { settings?: any }) {
           <motion.div 
             animate={{ y: [-15, 15, -15] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-[240px] sm:w-[280px] md:w-[350px] lg:w-[450px] xl:w-[550px] flex justify-center items-center" 
+            className="relative w-[85%] max-w-[320px] sm:max-w-[380px] md:max-w-none md:w-[350px] lg:w-[450px] xl:w-[550px] flex justify-center items-center" 
             data-cursor="EXPLORE"
           >
             <img 

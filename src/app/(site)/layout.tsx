@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { getSettings } from "@/app/actions/settings";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
+import FloatingWidgets from "@/components/FloatingWidgets";
 
 export default async function SiteLayout({
   children,
@@ -28,6 +29,7 @@ export default async function SiteLayout({
           <div className="flex-grow">
             {children}
           </div>
+          <FloatingWidgets />
           <Footer settings={settings} />
         </div>
       </LenisProvider>
