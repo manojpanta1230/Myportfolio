@@ -39,7 +39,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-50 bg-background flex flex-col items-center justify-center gap-8 md:hidden text-foreground"
+            className="fixed inset-0 z-50 bg-[#0a0a0a] text-white flex flex-col items-center justify-center gap-8 md:hidden"
           >
             <Link href="/projects" onClick={() => setIsOpen(false)} className="font-display text-4xl uppercase font-bold hover:text-accent transition-colors">Work</Link>
             <Link href="/about" onClick={() => setIsOpen(false)} className="font-display text-4xl uppercase font-bold hover:text-accent transition-colors">About</Link>

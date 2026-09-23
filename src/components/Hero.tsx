@@ -82,7 +82,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full flex flex-col justify-center overflow-hidden bg-background text-foreground" id="hero">
+    <section ref={containerRef} className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden bg-background text-foreground py-20 md:py-0" id="hero">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -91,7 +91,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col md:flex-row items-center justify-between h-full pt-32 md:pt-0">
+      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col md:flex-row items-center justify-between h-auto md:h-full pt-16 md:pt-0">
         
         {/* Left Side: Text */}
         <motion.div 
@@ -99,12 +99,12 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate={isReady ? "show" : "hidden"}
-          className="flex flex-col items-start gap-4 w-full lg:w-[55%] relative pointer-events-auto"
+          className="flex flex-col items-start gap-4 w-full md:w-[60%] lg:w-[55%] relative pointer-events-auto"
         >
           
           <motion.h1
             variants={item}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.9] tracking-tighter relative"
+            className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase leading-[0.9] tracking-tighter relative"
           >
             <span className="absolute -left-6 md:-left-12 top-6 w-3 h-3 rounded-full bg-accent hidden md:block" />
             I'm a developer <br />
@@ -114,11 +114,11 @@ export default function Hero() {
           
           <motion.div
             variants={item}
-            className="mt-8 pointer-events-auto max-w-lg"
+            className="mt-6 md:mt-8 pointer-events-auto max-w-lg"
           >
             <motion.p 
               variants={item}
-              className="text-foreground/70 text-sm md:text-base leading-relaxed mb-8"
+              className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 md:mb-8"
             >
               I am Manoj Panta, a Full Stack Developer, Managing Director & Founder at Birvex Tech Pvt Ltd based in Kathmandu, Nepal. I specialize in frontend and full stack web development using modern technologies to build fast, responsive, and SEO-friendly digital solutions worldwide.
             </motion.p>
@@ -135,12 +135,12 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ delay: 0.4, duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="w-full lg:w-[45%] flex justify-center lg:justify-end mt-24 lg:mt-40 pointer-events-auto relative z-10"
+          className="w-full md:w-[40%] lg:w-[45%] flex justify-center lg:justify-end mt-12 md:mt-0 pointer-events-auto relative z-10"
         >
           <motion.div 
             animate={{ y: [-15, 15, -15] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-[280px] md:w-[500px] lg:w-[700px] xl:w-[800px] flex justify-center items-center" 
+            className="relative w-[240px] sm:w-[280px] md:w-[350px] lg:w-[450px] xl:w-[550px] flex justify-center items-center" 
             data-cursor="EXPLORE"
           >
             <img 

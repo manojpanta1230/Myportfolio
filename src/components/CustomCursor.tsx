@@ -54,24 +54,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer trailing ring */}
-      <motion.div
-        className="fixed top-0 left-0 z-[100] pointer-events-none rounded-full border border-accent"
-        animate={{
-          x: position.x - (isHovering ? (hoverText ? 32 : 20) : 16),
-          y: position.y - (isHovering ? (hoverText ? 32 : 20) : 16),
-          width: isHovering ? (hoverText ? 64 : 40) : 32,
-          height: isHovering ? (hoverText ? 64 : 40) : 32,
-          opacity: isHovering ? 0 : 0.5,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 25,
-          mass: 0.2,
-        }}
-      />
-      
       {/* Inner dot / Hover expanding circle */}
       <motion.div
         className="fixed top-0 left-0 z-[100] pointer-events-none flex items-center justify-center rounded-full bg-white text-black font-bold tracking-widest text-[10px] mix-blend-difference"

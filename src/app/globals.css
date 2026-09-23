@@ -40,6 +40,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Ensure all containers have a nice responsive gap on left and right */
+.container {
+  padding-left: max(1.5rem, 5vw) !important;
+  padding-right: max(1.5rem, 5vw) !important;
+}
+
 /* Hide scrollbar for cleaner look */
 ::-webkit-scrollbar {
   display: none;
@@ -65,14 +71,4 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
-
-@media (hover: hover) { 
-  .custom-cursor-container, 
-  .custom-cursor-container a, 
-  .custom-cursor-container button, 
-  .custom-cursor-container input, 
-  .custom-cursor-container textarea, 
-  .custom-cursor-container select { 
-    cursor: none !important; 
-  } 
-}
+

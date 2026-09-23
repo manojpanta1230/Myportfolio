@@ -4,8 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Projects({ projects }: { projects: any[] }) {
-  const featuredProjects = projects.filter(p => p.isFeatured) || projects.slice(0, 5);
-  const otherProjects = projects.filter(p => !p.isFeatured);
+  let featuredProjects = projects.filter(p => p.isFeatured);
+  if (featuredProjects.length === 0) {
+    featuredProjects = projects.slice(0, 5);
+  }
+  
+  const otherProjects = projects.filter(p => !featuredProjects.some(fp => fp._id === p._id));
 
   return (
     <section className="py-32 bg-secondary text-foreground border-t border-border-subtle" id="work">
@@ -72,14 +76,14 @@ function SmallProjectCard({ project }: { project: any }) {
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1 mt-auto">
-          {(typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies).slice(0, 3).map((tech: string) => (
+          {((typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies) || []).slice(0, 3).map((tech: string) => (
             <span key={tech} className="px-2 py-0.5 border border-border-subtle text-[10px] text-foreground/50">
               {tech.trim()}
             </span>
           ))}
-          {(typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies).length > 3 && (
+          {((typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies) || []).length > 3 && (
             <span className="px-2 py-0.5 border border-border-subtle text-[10px] text-foreground/50">
-              +{(typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies).length - 3}
+              +{((typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies) || []).length - 3}
             </span>
           )}
         </div>
@@ -134,7 +138,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
         </p>
         
         <div className={`flex flex-wrap gap-2 mb-8 ${index % 2 !== 0 ? 'justify-end' : ''}`}>
-          {(typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies).map((tech: string) => (
+          {((typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies) || []).map((tech: string) => (
             <span key={tech} className="px-3 py-1 border border-border-subtle text-xs text-foreground/50">
               {tech.trim()}
             </span>

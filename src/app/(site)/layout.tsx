@@ -21,7 +21,7 @@ export default async function SiteLayout({
       disableTransitionOnChange={false}
     >
       <LenisProvider>
-        <div className="custom-cursor-container flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <CustomCursor />
           <Preloader />
           <Navbar />
