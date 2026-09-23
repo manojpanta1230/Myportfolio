@@ -43,6 +43,9 @@ export default function Hero() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("preloader_shown") === "true") {
+      setIsReady(true);
+    }
     const handleReady = () => setIsReady(true);
     window.addEventListener("preloaderComplete", handleReady);
     return () => window.removeEventListener("preloaderComplete", handleReady);

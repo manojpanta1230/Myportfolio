@@ -11,7 +11,11 @@ export default function Preloader() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // The preloader will now show on every page load
+    if (typeof window !== "undefined" && sessionStorage.getItem("preloader_shown") === "true") {
+      setIsLoading(false);
+      window.dispatchEvent(new Event("preloaderComplete"));
+      return;
+    }
 
     let currentIndex = 0;
     
