@@ -87,14 +87,14 @@ export default function Hero({ settings }: { settings?: any }) {
   return (
     <section ref={containerRef} className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden bg-background text-foreground py-20 md:py-0" id="hero">
       {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <ParticleSystem />
         </Canvas>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col md:flex-row items-center justify-between h-auto md:h-full pt-16 md:pt-0">
+      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col-reverse md:flex-row items-center justify-between h-auto md:h-full pt-16 md:pt-0 gap-12 md:gap-0">
         
         {/* Left Side: Text */}
         <motion.div 
@@ -102,7 +102,7 @@ export default function Hero({ settings }: { settings?: any }) {
           variants={container}
           initial="hidden"
           animate={isReady ? "show" : "hidden"}
-          className="flex flex-col items-start gap-4 w-full md:w-[60%] lg:w-[55%] relative pointer-events-auto"
+          className="flex flex-col items-start gap-4 w-full md:w-[60%] lg:w-[55%] relative pointer-events-auto mt-4 md:mt-0"
         >
           
           <motion.h1
@@ -163,7 +163,7 @@ export default function Hero({ settings }: { settings?: any }) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ delay: 0.4, duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="w-full md:w-[40%] lg:w-[45%] flex justify-center lg:justify-end mt-12 md:mt-0 pointer-events-auto relative z-10"
+          className="w-full md:w-[40%] lg:w-[45%] flex justify-center lg:justify-end pointer-events-auto relative z-10 mb-4 md:mb-0"
         >
           <motion.div 
             animate={{ y: [-15, 15, -15] }}
