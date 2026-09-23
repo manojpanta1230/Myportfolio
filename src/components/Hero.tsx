@@ -110,15 +110,34 @@ export default function Hero({ settings }: { settings?: any }) {
             className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase leading-[0.9] tracking-tighter relative"
           >
             <span className="absolute -left-6 md:-left-12 top-6 w-3 h-3 rounded-full bg-accent hidden md:block" />
-            {settings?.heroTitle ? (
-              <span dangerouslySetInnerHTML={{ __html: settings.heroTitle }} />
-            ) : (
-              <>
-                I'm a developer <br />
-                who loves turning <br />
-                <span className="text-accent">ideas into<br />products.</span>
-              </>
-            )}
+            {(() => {
+              if (settings?.heroTitle) {
+                // If it contains HTML, render it directly
+                if (settings.heroTitle.includes('<')) {
+                  return <span dangerouslySetInnerHTML={{ __html: settings.heroTitle }} />;
+                }
+                
+                // Otherwise split in half and color the second half accent
+                const words = settings.heroTitle.split(" ");
+                const halfIndex = Math.ceil(words.length / 2);
+                const firstHalf = words.slice(0, halfIndex).join(" ");
+                const secondHalf = words.slice(halfIndex).join(" ");
+
+                return (
+                  <>
+                    {firstHalf} <span className="text-accent">{secondHalf}</span>
+                  </>
+                );
+              }
+              
+              return (
+                <>
+                  I'm a developer <br />
+                  who loves turning <br />
+                  <span className="text-accent">ideas into<br />products.</span>
+                </>
+              );
+            })()}
           </motion.h1>
           
           <motion.div
