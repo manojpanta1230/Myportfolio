@@ -37,7 +37,7 @@ function ParticleSystem(props: any) {
   );
 }
 
-export default function Hero() {
+export default function Hero({ settings }: { settings?: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const [isReady, setIsReady] = useState(false);
@@ -110,9 +110,15 @@ export default function Hero() {
             className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase leading-[0.9] tracking-tighter relative"
           >
             <span className="absolute -left-6 md:-left-12 top-6 w-3 h-3 rounded-full bg-accent hidden md:block" />
-            I'm a developer <br />
-            who loves turning <br />
-            <span className="text-accent">ideas into<br />products.</span>
+            {settings?.heroTitle ? (
+              <span dangerouslySetInnerHTML={{ __html: settings.heroTitle }} />
+            ) : (
+              <>
+                I'm a developer <br />
+                who loves turning <br />
+                <span className="text-accent">ideas into<br />products.</span>
+              </>
+            )}
           </motion.h1>
           
           <motion.div
@@ -123,7 +129,7 @@ export default function Hero() {
               variants={item}
               className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 md:mb-8"
             >
-              I am Manoj Panta, a Full Stack Developer, Managing Director & Founder at Birvex Tech Pvt Ltd based in Kathmandu, Nepal. I specialize in frontend and full stack web development using modern technologies to build fast, responsive, and SEO-friendly digital solutions worldwide.
+              {settings?.heroIntro || "I am Manoj Panta, a Full Stack Developer, Managing Director & Founder at Birvex Tech Pvt Ltd based in Kathmandu, Nepal. I specialize in frontend and full stack web development using modern technologies to build fast, responsive, and SEO-friendly digital solutions worldwide."}
             </motion.p>
             
             <button className="bg-accent text-black hover:bg-white transition-colors px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 group w-max">

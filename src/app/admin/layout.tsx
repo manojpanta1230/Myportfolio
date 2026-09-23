@@ -1,3 +1,5 @@
+import { logout } from "@/app/actions/auth";
+
 export default function AdminLayout({
   children,
 }: {
@@ -21,9 +23,11 @@ export default function AdminLayout({
         </nav>
         
         <div className="mt-auto">
-          <button className="text-red-400 font-mono text-sm hover:text-red-300 transition-colors px-4 py-2">
-            Logout
-          </button>
+          <form action={logout}>
+            <button type="submit" className="text-red-400 font-mono text-sm hover:text-red-300 transition-colors px-4 py-2">
+              Logout
+            </button>
+          </form>
         </div>
       </aside>
 
