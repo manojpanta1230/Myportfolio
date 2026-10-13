@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,6 +27,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${spaceGrotesk.variable} antialiased dark`}>
       <body className="bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-black transition-colors duration-300">
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RZL0FM756M"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-RZL0FM756M');
+          `}
+        </Script>
       </body>
     </html>
   );
