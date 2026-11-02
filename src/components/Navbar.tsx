@@ -12,8 +12,8 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed inset-x-0 top-0 z-[100] w-full bg-slate-950/85 backdrop-blur-lg border-b border-white/10 text-white">
-        <div className="container mx-auto px-3 sm:px-6 py-5 sm:py-6 flex justify-between items-center">
-          <Link href="/" className="relative block h-14 w-44 shrink-0 overflow-hidden sm:h-16 sm:w-60" onClick={() => setIsOpen(false)}>
+        <div className="container mx-auto px-3 sm:px-6 py-5 sm:py-6 flex min-w-0 justify-between items-center">
+          <Link href="/" className="relative block h-14 w-36 shrink min-w-0 overflow-hidden sm:h-16 sm:w-60 sm:shrink-0" onClick={() => setIsOpen(false)}>
             <Image
               src="/mpanta-logo.svg"
               alt="MPanta - Full Stack Developer"

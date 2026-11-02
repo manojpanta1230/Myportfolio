@@ -44,7 +44,7 @@ export default function Marquee() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-8 md:py-12 bg-accent text-black overflow-hidden relative rotate-2 scale-110">
+    <section ref={containerRef} className="w-full max-w-full py-8 md:py-12 bg-accent text-black overflow-hidden relative rotate-2 scale-110">
       <div className="whitespace-nowrap flex" ref={textRef}>
         {/* Double the text to create a seamless loop */}
         <h2 className="font-display text-4xl md:text-7xl font-bold uppercase tracking-tighter px-4">

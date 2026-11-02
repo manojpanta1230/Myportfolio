@@ -35,6 +35,8 @@
 html {
   width: 100%;
   min-width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   background-color: var(--background);
 }
 
@@ -42,7 +44,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -51,6 +53,10 @@ body > div {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
+}
+
+body > div {
+  overflow-x: clip;
 }
 
 /* Ensure all containers have a nice responsive gap on left and right */
