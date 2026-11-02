@@ -65,8 +65,8 @@ export default function Preloader() {
             <div className="absolute inset-0 bg-black/60" />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center gap-6">
-            <h1 className="font-mono text-xl md:text-3xl tracking-widest font-bold text-accent h-8 drop-shadow-lg">
+          <div className="relative z-10 flex w-full flex-col items-center gap-6 px-6 text-center">
+            <h1 className="w-full max-w-3xl text-center font-mono text-sm sm:text-xl md:text-3xl tracking-widest font-bold text-accent min-h-8 drop-shadow-lg">
               {text}
               <motion.span
                 animate={{ opacity: [1, 0] }}

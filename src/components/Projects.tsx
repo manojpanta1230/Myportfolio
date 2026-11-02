@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Projects({ projects }: { projects: any[] }) {
   let featuredProjects = projects.filter(p => p.isFeatured);
@@ -151,7 +152,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-widest hover:text-accent transition-colors font-bold"
         >
-          View Live Project <span className="text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+          View Live Project <ArrowUpRight aria-hidden="true" size={16} className="text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </a>
       </motion.div>
     </div>

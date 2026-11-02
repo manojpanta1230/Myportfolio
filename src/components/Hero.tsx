@@ -7,6 +7,7 @@ import * as random from "maath/random/dist/maath-random.esm";
 import { motion, Variants } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -151,10 +152,10 @@ export default function Hero({ settings }: { settings?: any }) {
               {settings?.heroIntro || "I am Manoj Panta, a Full Stack Developer, Managing Director & Founder at Birvex Tech Pvt Ltd based in Kathmandu, Nepal. I specialize in frontend and full stack web development using modern technologies to build fast, responsive, and SEO-friendly digital solutions worldwide."}
             </motion.p>
             
-            <button className="bg-accent text-black hover:bg-white transition-colors px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 group w-max">
+            <a href="/projects" className="bg-accent text-black hover:bg-white transition-colors px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase flex items-center gap-2 group w-max">
               Explore Work 
-              <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-            </button>
+              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2.5} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </a>
           </motion.div>
         </motion.div>
 
