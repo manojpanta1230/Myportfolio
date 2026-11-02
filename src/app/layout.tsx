@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${spaceGrotesk.variable} antialiased dark`}>
-      <body className="bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-black transition-colors duration-300">
+      <body className="w-full min-w-0 overflow-x-hidden bg-background text-foreground min-h-screen flex flex-col selection:bg-accent selection:text-black transition-colors duration-300">
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RZL0FM756M"

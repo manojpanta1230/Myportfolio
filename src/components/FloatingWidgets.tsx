@@ -28,7 +28,7 @@ export default function FloatingWidgets() {
   };
 
   return (
-    <div className="fixed bottom-10 md:bottom-12 right-6 z-50 flex flex-col items-center gap-4">
+    <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-4 sm:right-6 sm:bottom-8 z-50 flex flex-col items-center gap-3 sm:gap-4">
       {/* Scroll to Top Button */}
       <AnimatePresence>
         {showScrollTop && (
@@ -39,11 +39,11 @@ export default function FloatingWidgets() {
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-white hover:text-black transition-colors duration-300 group relative"
+            className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:bg-white hover:text-black transition-colors duration-300 group relative"
             aria-label="Scroll to top"
           >
             {/* Tooltip */}
-            <span className="absolute right-full mr-4 bg-black border border-white/20 text-white text-xs px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <span className="hidden sm:block absolute right-full mr-4 bg-black border border-white/20 text-white text-xs px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Go to Top
             </span>
             <svg
@@ -61,27 +61,27 @@ export default function FloatingWidgets() {
 
       {/* WhatsApp Button */}
       <motion.a
-        href="https://wa.me/9867396900"
+        href="https://wa.me/9779867396900?text=Hello%20Manoj%2C%20I%20would%20like%20to%20discuss%20a%20project."
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="relative w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] group transition-shadow duration-300"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] group transition-shadow duration-300"
         aria-label="Chat on WhatsApp"
       >
         {/* Pulse Effect */}
         <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-75" />
         
         {/* Tooltip */}
-        <span className="absolute right-full mr-4 bg-black border border-white/20 text-white text-xs px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <span className="hidden sm:block absolute right-full mr-4 bg-black border border-white/20 text-white text-xs px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Chat with me
         </span>
         
         {/* WhatsApp Icon */}
         <svg
-          className="w-7 h-7 relative z-10"
+          className="w-6 h-6 sm:w-7 sm:h-7 relative z-10"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"

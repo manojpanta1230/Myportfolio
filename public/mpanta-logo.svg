@@ -1,0 +1,9 @@
+<svg width="480" height="110" viewBox="0 0 480 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>MPanta logo</title>
+  <rect x="4" y="12" width="86" height="86" rx="22" fill="#CCFF00"/>
+  <path d="M22 72V38L35 51L47 33L59 51L72 38V72" stroke="#050505" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 80H66" stroke="#050505" stroke-width="8" stroke-linecap="round"/>
+  <text x="108" y="48" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="1">MANOJ PANTA</text>
+  <text x="110" y="77" fill="#CCFF00" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3">SOFTWARE ENGINEER</text>
+  <rect x="110" y="91" width="265" height="3" rx="1.5" fill="#CCFF00"/>
+</svg>

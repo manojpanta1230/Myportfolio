@@ -85,7 +85,7 @@ export default function Hero({ settings }: { settings?: any }) {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden bg-background text-foreground py-20 md:py-0" id="hero">
+    <section ref={containerRef} className="relative min-h-screen w-full min-w-0 flex flex-col justify-center overflow-hidden bg-background text-foreground py-20 md:py-0" id="hero">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -94,7 +94,7 @@ export default function Hero({ settings }: { settings?: any }) {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 pointer-events-none flex flex-col-reverse md:flex-row items-center justify-between h-auto md:h-full pt-16 md:pt-0 gap-12 md:gap-0">
+      <div className="container mx-auto w-full min-w-0 px-6 relative z-10 pointer-events-none flex flex-col-reverse md:flex-row items-center justify-between h-auto md:h-full pt-16 md:pt-0 gap-12 md:gap-0">
         
         {/* Left Side: Text */}
         <motion.div 
@@ -168,16 +168,13 @@ export default function Hero({ settings }: { settings?: any }) {
           <motion.div 
             animate={{ y: [-15, 15, -15] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-[85%] max-w-[320px] sm:max-w-[380px] md:max-w-none md:w-[350px] lg:w-[450px] xl:w-[550px] flex justify-center items-center" 
+            className="relative w-[85%] max-w-[320px] sm:max-w-[380px] md:max-w-none md:w-[350px] lg:w-[450px] xl:w-[550px] aspect-[4/5] overflow-hidden border border-accent/30 shadow-2xl [clip-path:polygon(10%_0,90%_0,100%_12%,100%_88%,90%_100%,10%_100%,0_88%,0_12%)]"
             data-cursor="EXPLORE"
           >
             <img 
-              src="/gemini.png" 
+              src="/my.jpg" 
               alt="Manoj Panta" 
-              className="object-contain w-full h-auto drop-shadow-2xl" 
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/my.jpg';
-              }}
+              className="absolute inset-0 h-full w-full object-cover object-top" 
             />
           </motion.div>
         </motion.div>

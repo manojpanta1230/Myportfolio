@@ -22,11 +22,11 @@ export default async function SiteLayout({
       disableTransitionOnChange={false}
     >
       <LenisProvider>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex w-full min-w-0 flex-col min-h-screen">
           <CustomCursor />
           <Preloader />
           <Navbar />
-          <div className="flex-grow">
+          <div className="w-full min-w-0 flex-grow">
             {children}
           </div>
           <FloatingWidgets />
